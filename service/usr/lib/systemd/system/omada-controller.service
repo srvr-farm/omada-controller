@@ -1,0 +1,19 @@
+[Unit]
+Description=TP-Link Omada Controller
+After=local-fs.target network.target docker.service
+Requires=network.target docker.service
+Wants=local-fs.target
+
+[Service]
+Restart=always
+RestartSec=10
+Type=simple
+TimeoutStopSec=120s
+User=root
+WorkingDirectory=/home/omada/
+ExecStart=/opt/omada-controller/bin/start.sh
+ExecStop=/opt/omada-controller/bin/stop.sh
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
