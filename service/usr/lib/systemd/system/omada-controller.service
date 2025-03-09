@@ -1,7 +1,6 @@
 [Unit]
 Description=TP-Link Omada Controller
-After=local-fs.target network.target docker.service
-Requires=network.target docker.service
+After=local-fs.target network.target docker.service zfs.target srv.mount
 Wants=local-fs.target
 
 [Service]
